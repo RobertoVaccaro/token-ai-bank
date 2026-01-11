@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Benvenuto – Token’s AI Bank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system;
+      background: radial-gradient(circle at top, #0c0f1a, #05060a);
+      color:#f5f5f5;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+    }
+    .box{
+      max-width:480px;
+      width:90%;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:22px;
+      padding:32px;
+      text-align:center;
+      box-shadow:0 0 40px rgba(0,0,0,0.6);
+    }
+    h1{
+      margin-top:0;
+      font-size:26px;
+      color:#d4af37;
+    }
+    .id{
+      margin:18px 0;
+      font-size:22px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+    p{
+      color:#d0d0d0;
+      line-height:1.6;
+      font-size:14px;
+    }
+    .cta{
+      margin-top:22px;
+      padding:14px 18px;
+      border-radius:14px;
+      background:linear-gradient(135deg,#d4af37,#f5d77a);
+      color:#000;
+      font-weight:600;
+      text-decoration:none;
+      display:inline-block;
+    }
+    .note{
+      margin-top:20px;
+      font-size:12px;
+      color:#888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Registrazione completata</h1>
+
+    <p>Benvenuto nella <strong>Token’s AI Bank</strong>.</p>
+
+    <p>Il tuo conto è stato registrato correttamente nel sistema interno.</p>
+
+    <div class="id" id="contoID">Ŧ-XXXXXX</div>
+
+    <p>
+      Questo ID identifica il tuo Conto Ŧ all’interno
+      dell’ecosistema simulato.
+    </p>
+
+    <a class="cta" href="https://chat.openai.com/" target="_blank">
+      Apri ChatGPT
+    </a>
+
+    <div class="note">
+      Sistema simulato · Nessun valore reale · Nessun dato finanziario
+    </div>
+  </div>
+
+  <script>
+    const id = localStorage.getItem("contoTokenID");
+    if(id){
+      document.getElementById("contoID").innerText = id;
+    }
+  </script>
+
+</body>
+</html>
