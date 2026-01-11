@@ -1,33 +1,148 @@
-<!DOCTYPE html>
-<html lang="it">
+<!DOCTYPE html><html lang="it">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ŧoƙen’s AI Bank</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+  <meta name="description" content="Ŧoƙen’s AI Bank — ecosistema monetario simulato, IA assistiva, esperienza interattiva." />  <style>
+    :root{
+      --bg:#05060a;
+      --panel:rgba(15,16,26,.7);
+      --border:rgba(255,255,255,.14);
+      --gold:#c9a24d;
+      --neon:#00f5ff;
+      --text:#ffffff;
+      --muted:#b7b7c0;
+    }
 
-  <header>
-    <h1>Ŧoƙen’s AI Bank</h1>
-    <p>Sistema monetario interno simulato • IA assistiva</p>
-  </header>
+    *{box-sizing:border-box}
 
-  <main>
-    <section>
-      <h2>Accesso</h2>
-      <ul>
-        <li><a href="./apri-conto.html">Apri il tuo Conto Token (Ŧ)</a></li>
-        <li><a href="./moneta.html">Visualizza la Moneta Ŧ</a></li>
-      </ul>
-    </section>
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
+      background:radial-gradient(circle at top,#0c1024,#05060a);
+      color:var(--text);
+      overflow-x:hidden;
+    }
 
-    <section>
-      <p>
-        Nessun pagamento. Nessun valore reale.<br>
-        Sistema sperimentale e informativo.
-      </p>
-    </section>
-  </main>
+    /* NAV */
+    .nav{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:1000;
+      display:flex;
+      gap:18px;
+      padding:10px 20px;
+      border-radius:999px;
+      background:rgba(10,10,20,.6);
+      backdrop-filter:blur(10px);
+      border:1px solid var(--border);
+    }
+    .nav a{color:#fff;text-decoration:none;font-weight:700}
+    .nav a.cta{color:var(--gold)}
 
-</body>
+    /* HERO */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px 16px;
+    }
+
+    .hero-box{
+      max-width:720px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:48px 28px;
+      box-shadow:0 0 40px rgba(0,245,255,.12);
+    }
+
+    h1{
+      font-size:42px;
+      margin:0;
+      letter-spacing:1px;
+    }
+
+    .sigil{
+      font-size:120px;
+      margin:20px 0;
+      color:var(--gold);
+      text-shadow:0 0 30px rgba(201,162,77,.6);
+    }
+
+    .tagline{
+      font-size:18px;
+      color:var(--muted);
+      margin-bottom:32px;
+    }
+
+    /* ACTIONS */
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:18px;
+      margin-top:10px;
+    }
+
+    .card{
+      width:220px;
+      padding:20px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      text-decoration:none;
+      color:#fff;
+      transition:transform .25s, box-shadow .25s;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 0 25px rgba(0,245,255,.25);
+    }
+
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    footer{
+      text-align:center;
+      padding:20px;
+      font-size:12px;
+      color:var(--muted);
+    }
+  </style></head><body>  <!-- NAV -->  <div class="nav">
+    <a href="./moneta.html">Moneta Ŧ</a>
+    <a class="cta" href="./apri-conto.html">Apri Conto</a>
+  </div>  <!-- HERO -->  <section class="hero">
+    <div class="hero-box">
+      <div class="sigil">Ŧ</div>
+      <h1>Ŧoƙen’s AI Bank</h1>
+      <p class="tagline">
+        Ecosistema monetario simulato • IA assistiva • Esperienza interattiva
+      </p><div class="actions">
+    <a class="card" href="./apri-conto.html">
+      <h3>Apri il tuo Conto</h3>
+      <p>Accesso pubblico • Nessun valore reale</p>
+    </a>
+
+    <a class="card" href="./moneta.html">
+      <h3>Visualizza la Moneta Ŧ</h3>
+      <p>Rappresentazione tridimensionale</p>
+    </a>
+
+    <a class="card" href="#" onclick="alert('Documentazione integrata nella piattaforma')">
+      <h3>Documentazione</h3>
+      <p>Regole • Etica • Sistema</p>
+    </a>
+  </div>
+</div>
+
+  </section>  <footer>
+    Ŧoƙen’s AI Bank • Ambiente simulato • Nessun valore reale
+  </footer></body>
 </html>
