@@ -1,42 +1,101 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>Registrazione completata</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  background: #0b0f1a;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-}
+  <meta charset="UTF-8">
+  <title>Benvenuto – Token’s AI Bank</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.box {
-  background: rgba(255,255,255,0.06);
-  padding: 40px;
-  border-radius: 18px;
-  box-shadow: 0 0 40px rgba(255,215,0,0.2);
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #111827, #000000);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-h1 {
-  color: #ffd700;
-}
-</style>
+    .container {
+      width: 90%;
+      max-width: 420px;
+      background: rgba(20, 20, 20, 0.9);
+      border-radius: 22px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.18);
+    }
+
+    .sigillo {
+      font-size: 48px;
+      font-weight: bold;
+      color: #d4af37;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 15px;
+      color: #cccccc;
+      line-height: 1.5;
+    }
+
+    .box {
+      margin-top: 25px;
+      padding: 20px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 14px;
+    }
+
+    a.button {
+      display: block;
+      margin-top: 25px;
+      padding: 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: bold;
+      background: linear-gradient(135deg, #d4af37, #b8962e);
+      color: #000;
+    }
+
+    .note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
 </head>
 
 <body>
-<div class="box">
-  <h1>Benvenuto nella Token’s AI Bank</h1>
-  <p>La tua registrazione è avvenuta con successo.</p>
-  <p>Il tuo Conto Ŧ è ora attivo all’interno del sistema.</p>
 
-  <br>
-  <a href="index.html" style="color:#ffd700;">Torna alla Home</a>
-</div>
+  <div class="container">
+    <div class="sigillo">Ŧ</div>
+
+    <h1>Benvenuto</h1>
+    <p>
+      La tua registrazione a <strong>Token’s AI Bank</strong>  
+      è avvenuta correttamente.
+    </p>
+
+    <div class="box">
+      Il tuo Conto Token Ŧ è ora attivo.<br>
+      L’accesso è personale e valido all’interno  
+      del sistema monetario simulato.
+    </div>
+
+    <a href="index.html" class="button">
+      Torna alla Home
+    </a>
+
+    <div class="note">
+      Nessun valore reale • Sistema sperimentale • IA assistiva
+    </div>
+  </div>
+
 </body>
 </html>
