@@ -1,150 +1,179 @@
-<!DOCTYPE html><html lang="it">
+<!DOCTYPE html>
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ŧoƙen’s AI Bank</title>
-  <meta name="description" content="Ŧoƙen’s AI Bank — ecosistema monetario simulato, IA assistiva, esperienza interattiva." />  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Token’s AI Bank</title>
+
+  <style>
     :root{
-      --bg:#05060a;
-      --panel:rgba(15,16,26,.7);
-      --border:rgba(255,255,255,.14);
-      --gold:#c9a24d;
-      --neon:#00f5ff;
-      --text:#ffffff;
-      --muted:#b7b7c0;
+      --bg:#0b0b0c;
+      --panel:#141418;
+      --border:#24242a;
+      --gold:#d6b46a;
+      --text:#f2f2f2;
+      --muted:#a0a0a8;
     }
 
-    *{box-sizing:border-box}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
     body{
-      margin:0;
-      min-height:100vh;
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
-      background:radial-gradient(circle at top,#0c1024,#05060a);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #12121a, #060608);
       color:var(--text);
-      overflow-x:hidden;
+      min-height:100vh;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+      position:relative;
+      z-index:10;
     }
 
     /* NAV */
     .nav{
-      position:fixed;
-      top:18px;
-      left:50%;
-      transform:translateX(-50%);
-      z-index:1000;
       display:flex;
-      gap:18px;
-      padding:10px 20px;
-      border-radius:999px;
-      background:rgba(10,10,20,.6);
-      backdrop-filter:blur(10px);
-      border:1px solid var(--border);
+      justify-content:center;
+      gap:10px;
+      padding:18px;
     }
-    .nav a{color:#fff;text-decoration:none;font-weight:700}
-    .nav a.cta{color:var(--gold)}
+
+    .nav a{
+      padding:10px 18px;
+      border-radius:30px;
+      background:rgba(255,255,255,0.04);
+      border:1px solid var(--border);
+      font-weight:600;
+    }
+
+    .nav a.active{
+      color:var(--gold);
+    }
 
     /* HERO */
     .hero{
-      min-height:100vh;
       display:flex;
-      align-items:center;
       justify-content:center;
-      text-align:center;
-      padding:40px 16px;
+      padding:30px 16px 60px;
     }
 
     .hero-box{
-      max-width:720px;
-      background:var(--panel);
+      max-width:480px;
+      width:100%;
+      background:rgba(255,255,255,0.03);
       border:1px solid var(--border);
-      border-radius:24px;
-      padding:48px 28px;
-      box-shadow:0 0 40px rgba(0,245,255,.12);
-    }
-
-    h1{
-      font-size:42px;
-      margin:0;
-      letter-spacing:1px;
+      border-radius:28px;
+      padding:36px 22px 40px;
+      text-align:center;
+      box-shadow:0 0 40px rgba(0,0,0,0.6);
     }
 
     .sigil{
-      font-size:120px;
-      margin:20px 0;
+      font-size:44px;
+      font-weight:800;
       color:var(--gold);
-      text-shadow:0 0 30px rgba(201,162,77,.6);
+      margin-bottom:14px;
+    }
+
+    h1{
+      font-size:36px;
+      margin-bottom:10px;
     }
 
     .tagline{
-      font-size:18px;
       color:var(--muted);
-      margin-bottom:32px;
+      font-size:16px;
+      line-height:1.4;
+      margin-bottom:28px;
     }
 
     /* ACTIONS */
     .actions{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:18px;
-      margin-top:10px;
+      display:grid;
+      gap:16px;
     }
 
     .card{
-      width:220px;
-      padding:20px;
-      border-radius:18px;
-      background:rgba(255,255,255,.03);
+      display:block;
+      padding:22px;
+      border-radius:22px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
       border:1px solid var(--border);
-      text-decoration:none;
-      color:#fff;
-      transition:transform .25s, box-shadow .25s;
+      transition:transform .15s ease, box-shadow .15s ease;
+      pointer-events:auto;
     }
 
     .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 0 25px rgba(0,245,255,.25);
+      transform:translateY(-2px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.4);
     }
 
-    .card h3{margin:0 0 8px;font-size:18px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
+    .card h3{
+      font-size:20px;
+      margin-bottom:6px;
+    }
+
+    .card p{
+      font-size:14px;
+      color:var(--muted);
+    }
 
     footer{
       text-align:center;
-      padding:20px;
-      font-size:12px;
+      font-size:13px;
       color:var(--muted);
+      padding:26px 10px;
     }
-  </style></head><body>  <!-- NAV -->  <div class="nav">
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
     <a href="./moneta.html">Moneta Ŧ</a>
-    <a class="cta" href="./apri-conto.html">Apri Conto</a>
-  </div>  <!-- HERO -->  <section class="hero">
+    <a href="./apri-conto.html">Apri Conto</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
     <div class="hero-box">
+
       <div class="sigil">Ŧ</div>
-      <h1>Ŧoƙen’s AI Bank</h1>
+      <h1>Token’s AI Bank</h1>
       <p class="tagline">
         Ecosistema monetario simulato • IA assistiva • Esperienza interattiva
-      </p><div class="actions">
-    <a class="card" href="./apri-conto.html">
-      <h3>Apri il tuo Conto</h3>
-      <p>Accesso pubblico • Nessun valore reale</p>
-    </a>
+      </p>
 
-    <a class="card" href="./moneta.html">
-      <h3>Visualizza la Moneta Ŧ</h3>
-      <p>Rappresentazione tridimensionale</p>
-    </a>
+      <div class="actions">
 
-    <a href="documentazione.html" style="text-decoration:none; color:inherit;">
-  <div class="card">
-    <h3>Documentazione</h3>
-    <p>Regole • Etica • Sistema</p>
-  </div>
-</a>
-  </div>
-</div>
+        <a class="card" href="./apri-conto.html">
+          <h3>Apri il tuo Conto</h3>
+          <p>Accesso pubblico • Nessun valore reale</p>
+        </a>
 
-  </section>  <footer>
-    Ŧoƙen’s AI Bank • Ambiente simulato • Nessun valore reale
-  </footer></body>
+        <a class="card" href="./moneta.html">
+          <h3>Visualizza la Moneta Ŧ</h3>
+          <p>Rappresentazione digitale ufficiale</p>
+        </a>
+
+        <a class="card" href="./documentazione.html">
+          <h3>Documentazione</h3>
+          <p>Regole • Etica • Struttura del sistema</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Token’s AI Bank • Ambiente simulato • Nessun valore reale
+  </footer>
+
+</body>
 </html>
