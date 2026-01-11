@@ -2,96 +2,31 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Apri il tuo Conto Ŧ – Token’s AI Bank</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #111827, #000000);
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .container {
-      width: 90%;
-      max-width: 420px;
-      background: rgba(20, 20, 20, 0.9);
-      border-radius: 22px;
-      padding: 32px;
-      box-shadow: 0 0 45px rgba(255, 215, 0, 0.18);
-      text-align: center;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 14px;
-      color: #cccccc;
-      margin-bottom: 25px;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 14px;
-      border-radius: 12px;
-      border: none;
-      font-size: 16px;
-      outline: none;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      border-radius: 16px;
-      border: none;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      background: linear-gradient(135deg, #d4af37, #b8962e);
-      color: #000;
-    }
-
-    .note {
-      margin-top: 18px;
-      font-size: 12px;
-      color: #999999;
-    }
-  </style>
+  <title>Apri il tuo Conto Ŧ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
+<body style="background:#0b0b0f;color:white;font-family:sans-serif;text-align:center;padding:40px">
 
-  <div class="container">
-    <h1>Apri il tuo Conto Ŧ</h1>
-    <p>
-      Registrazione al sistema Token’s AI Bank<br>
-      Ambiente simulato • Nessun valore reale
-    </p>
+  <h1>Apri il tuo Conto Ŧ</h1>
+  <p>Sistema simulato • Nessun valore reale</p>
 
-    <!-- FORM NATIVO (LA CHIAVE) -->
-    <form 
-      method="POST"
-      action="https://script.google.com/macros/s/AKfycbx8y69Cm2g44d1MgJa79P30kPX3cczewWHmnKrRH6lGvNDJn1U28K8jvg3C5ja1rjeBzA/exec"
-    >
-      <input type="text" name="nome" placeholder="Nome completo" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="text" name="paese" placeholder="Paese" required>
+  <form 
+    action="https://script.google.com/macros/s/AKfycbx8y69Cm2g44d1MgJa79P30kPX3cczewWHmnKrRH6lGvNDJn1U28K8jvg3C5ja1rjeBzA/exec"
+    method="GET"
+  >
+    <input type="text" name="nome" placeholder="Nome" required><br><br>
+    <input type="email" name="email" placeholder="Email" required><br><br>
+    <input type="text" name="paese" value="Italia"><br><br>
 
-      <button type="submit">Registrati</button>
-    </form>
+    <button type="submit" style="padding:12px 30px;font-size:18px">
+      Registrati
+    </button>
+  </form>
 
-    <div class="note">
-      Il conto è personale e interno al sistema.
-    </div>
-  </div>
+  <p style="margin-top:20px;font-size:12px;opacity:0.6">
+    Nessuna valuta reale • Nessun deposito
+  </p>
 
 </body>
 </html>
