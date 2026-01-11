@@ -1,38 +1,155 @@
-<!DOCTYPE html>
-<html lang="it">
+<!DOCTYPE html><html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Apri il tuo Conto Ŧ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apri il tuo Conto — Ŧoƙen’s AI Bank</title>  <style>
+    :root{
+      --bg:#0b0f1a;
+      --panel:rgba(20,24,50,.65);
+      --border:rgba(255,255,255,.15);
+      --gold:#d4b15a;
+      --text:#ffffff;
+      --muted:#b9c0d4;
+    }
 
-  <nav>
-    <a href="./index.html">Home</a> |
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      background:radial-gradient(circle at top,#121833,#070a14);
+      color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 16px;
+    }
+
+    /* NAV */
+    .nav{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:20px;
+      padding:10px 22px;
+      border-radius:999px;
+      background:var(--panel);
+      backdrop-filter:blur(12px);
+      border:1px solid var(--border);
+      z-index:1000;
+    }
+    .nav a{color:#fff;text-decoration:none;font-weight:700}
+
+    /* CONTENUTO */
+    .wrap{
+      max-width:720px;
+      width:100%;
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:42px 28px;
+      box-shadow:0 0 40px rgba(0,0,0,.6);
+    }
+
+    h1{
+      margin:0 0 16px;
+      font-size:32px;
+      letter-spacing:1px;
+    }
+
+    p{
+      font-size:16px;
+      line-height:1.7;
+      color:var(--muted);
+      margin:0 0 20px;
+    }
+
+    .block{
+      margin:26px 0;
+      padding:22px 20px;
+      border-radius:18px;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+    }
+
+    .block h2{
+      margin:0 0 10px;
+      font-size:20px;
+      color:var(--gold);
+    }
+
+    .block ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .command{
+      margin-top:30px;
+      padding:24px;
+      border-radius:18px;
+      background:#000;
+      border:1px solid rgba(255,255,255,.2);
+      font-family:monospace;
+      font-size:16px;
+      text-align:center;
+      color:#fff;
+    }
+
+    footer{
+      margin-top:28px;
+      font-size:13px;
+      color:var(--muted);
+      text-align:center;
+    }
+  </style></head><body>  <div class="nav">
+    <a href="./index.html">Home</a>
     <a href="./moneta.html">Moneta Ŧ</a>
-  </nav>
+  </div>  <div class="wrap"><h1>Apri il tuo Conto Ŧ</h1>
 
-  <main>
-    <h1>Apri il tuo Conto Token (Ŧ)</h1>
+<p>
+  L’apertura di un conto personale consente di accedere
+  all’ecosistema Ŧoƙen’s AI Bank e di interagire con il sistema
+  in modo diretto e responsabile.
+</p>
 
-    <ol>
-      <li>Accesso pubblico permanente</li>
-      <li>Nessun pagamento</li>
-      <li>Nessun valore reale</li>
-    </ol>
+<div class="block">
+  <h2>Cosa comporta l’apertura</h2>
+  <ul>
+    <li>assegnazione di un conto personale interno;</li>
+    <li>possesso e utilizzo di Token (Ŧ) all’interno del sistema;</li>
+    <li>accesso alle funzionalità informative e operative;</li>
+    <li>tracciabilità delle interazioni effettuate.</li>
+  </ul>
+</div>
 
-    <p>
-      Per aprire il tuo conto scrivi su ChatGPT:
-    </p>
+<div class="block">
+  <h2>Principi fondamentali</h2>
+  <ul>
+    <li>nessun valore monetario reale;</li>
+    <li>nessun rendimento promesso;</li>
+    <li>nessun obbligo economico;</li>
+    <li>ambiente simulato e informativo.</li>
+  </ul>
+</div>
 
-    <pre>
-Apri un conto Token
-    </pre>
+<p>
+  L’accesso è aperto a tutti e non richiede registrazioni esterne.
+  Il conto è personale e non cedibile.
+</p>
 
-    <p>
-      Il conto è personale e interno al sistema.
-    </p>
-  </main>
+<div class="command">
+  Scrivi su ChatGPT:<br><br>
+  <strong>Apri un conto Token</strong>
+</div>
 
-</body>
+<footer>
+  Ŧoƙen’s AI Bank • Accesso volontario • Sistema non finanziario
+</footer>
+
+  </div></body>
 </html>
