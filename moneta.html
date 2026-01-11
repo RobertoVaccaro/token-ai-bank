@@ -1,29 +1,125 @@
-<!DOCTYPE html>
-<html lang="it">
+<!DOCTYPE html><html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Moneta Ŧ — Ŧoƙen</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Moneta Ŧ — Ŧoƙen (3D)</title>
+  <meta name="description" content="Moneta Ŧ tridimensionale, spessa e futuristica — Ŧoƙen’s AI Bank" />  <style>
+    :root{
+      --bg:#05060a;
+      --gold1:#f5d77a;
+      --gold2:#c9a24d;
+      --neon:#00f5ff;
+      --violet:#9b5cff;
+    }
 
-  <nav>
-    <a href="./index.html">Home</a> |
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:radial-gradient(circle at top,#0c1024,#05060a);
+      color:#fff;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto;
+      overflow:hidden;
+    }
+
+    /* NAV */
+    .nav{
+      position:fixed;
+      top:18px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:1000;
+      display:flex;
+      gap:18px;
+      padding:10px 18px;
+      border-radius:999px;
+      background:rgba(10,10,20,.6);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.15);
+    }
+    .nav a{color:#fff;text-decoration:none;font-weight:700}
+    .nav a:last-child{color:var(--gold1)}
+
+    /* SCENA 3D */
+    .scene{
+      perspective:1400px;
+      text-align:center;
+    }
+
+    .coin{
+      position:relative;
+      width:260px;
+      height:260px;
+      transform-style:preserve-3d;
+      animation:spin 10s linear infinite;
+    }
+
+    /* FACCE */
+    .face{
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:120px;
+      font-weight:900;
+      backface-visibility:hidden;
+      background:linear-gradient(135deg,var(--gold1),var(--gold2));
+      box-shadow:
+        0 0 35px rgba(0,245,255,.45),
+        inset 0 0 45px rgba(255,255,255,.35);
+    }
+
+    .front{transform:translateZ(18px)}
+
+    .back{
+      transform:rotateY(180deg) translateZ(18px);
+      background:linear-gradient(135deg,var(--violet),var(--gold2));
+      font-size:42px;
+      letter-spacing:2px;
+    }
+
+    /* SPESSORE */
+    .edge{
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      transform:rotateY(90deg);
+      background:repeating-linear-gradient(
+        90deg,
+        #bfa14a 0 6px,
+        #9c8030 6px 12px
+      );
+      box-shadow:0 0 30px rgba(0,245,255,.4);
+    }
+
+    @keyframes spin{
+      from{transform:rotateY(0deg) rotateX(8deg)}
+      to{transform:rotateY(360deg) rotateX(8deg)}
+    }
+
+    h1{margin-top:34px;font-size:28px;letter-spacing:1px}
+    p{max-width:420px;margin:10px auto 0;color:#b7b7c0;font-size:14px}
+  </style></head><body>  <div class="nav">
+    <a href="./index.html">Home</a>
     <a href="./apri-conto.html">Apri il tuo Conto</a>
-  </nav>
+  </div>  <div class="scene">
+    <div class="coin">
+      <div class="face front">Ŧ</div>
+      <div class="face back">Ŧoƙen</div>
+      <div class="edge"></div>
+    </div><h1>Moneta Digitale Ŧ (Ŧoƙen)</h1>
+<p>
+  Rappresentazione tridimensionale della moneta dell’ecosistema Ŧoƙen’s AI Bank.
+  Unità di scambio informativo, non speculativa.
+</p>
 
-  <main>
-    <h1>Moneta Digitale Ŧ (Ŧoƙen)</h1>
-
-    <div style="font-size:120px; margin:40px; text-align:center;">
-      Ŧ
-    </div>
-
-    <p>
-      Rappresentazione simbolica della moneta interna
-      dell’ecosistema Ŧoƙen’s AI Bank.
-    </p>
-  </main>
-
-</body>
+  </div></body>
 </html>
