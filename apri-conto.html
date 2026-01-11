@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Apri il tuo Conto Token Ŧ</title>
+  <title>Apri il tuo Conto Ŧ – Token’s AI Bank</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
@@ -11,124 +11,110 @@
       font-family: Arial, sans-serif;
       background: radial-gradient(circle at top, #111827, #000000);
       color: #ffffff;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
     }
 
-    .box {
+    .container {
       width: 90%;
       max-width: 420px;
-      background: rgba(20, 20, 20, 0.85);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
+      background: rgba(20, 20, 20, 0.9);
+      border-radius: 22px;
+      padding: 32px;
+      box-shadow: 0 0 45px rgba(255, 215, 0, 0.18);
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    p {
-      text-align: center;
+    p.subtitle {
       font-size: 14px;
       color: #cccccc;
-      margin-bottom: 25px;
+      margin-bottom: 24px;
     }
 
     input {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 14px;
+      border-radius: 12px;
       border: none;
-      outline: none;
       font-size: 16px;
+      outline: none;
     }
 
     button {
       width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #d4af37, #b8962e);
+      padding: 15px;
+      border-radius: 16px;
       border: none;
-      border-radius: 14px;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: bold;
       cursor: pointer;
+      background: linear-gradient(135deg, #d4af37, #b8962e);
       color: #000;
     }
 
-    button:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
-
     .note {
-      margin-top: 15px;
+      margin-top: 18px;
       font-size: 12px;
-      text-align: center;
       color: #999999;
+      line-height: 1.4;
     }
   </style>
 </head>
 
 <body>
 
-  <div class="box">
+  <div class="container">
     <h1>Apri il tuo Conto Ŧ</h1>
-    <p>Registrazione al sistema Token’s AI Bank<br>
-    Ambiente simulato • Nessun valore reale</p>
+    <p class="subtitle">
+      Registrazione al sistema Token’s AI Bank<br>
+      Ambiente simulato • Nessun valore reale
+    </p>
 
+    <!-- FORM -->
     <form id="registerForm">
       <input type="text" id="nome" placeholder="Nome completo" required>
       <input type="email" id="email" placeholder="Email" required>
       <input type="text" id="paese" placeholder="Paese" required>
-
-      <button type="submit" id="submitBtn">Registrati</button>
+      <button type="submit">Registrati</button>
     </form>
 
     <div class="note">
       Il conto è personale e interno al sistema.<br>
-      Nessun valore finanziario reale.
+      Nessuna valuta reale, nessun deposito.
     </div>
   </div>
 
+  <!-- SCRIPT -->
   <script>
-    document.getElementById("registerForm").addEventListener("submit", function(e) {
+    document.getElementById("registerForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const btn = document.getElementById("submitBtn");
-      btn.disabled = true;
+      const formData = new FormData();
+      formData.append("nome", document.getElementById("nome").value);
+      formData.append("email", document.getElementById("email").value);
+      formData.append("paese", document.getElementById("paese").value);
 
-      const data = {
-        nome: document.getElementById("nome").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        paese: document.getElementById("paese").value.trim()
-      };
-
-      fetch("https://script.google.com/macros/s/AKfycbyMJl64UmM66xLtDnFoUypgb688D2NfawHJZbQp69yc36ZC5MSQYOdOYZuCz-7o2AGdCg/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbx8y69Cm2g44d1MgJa79P30kPX3cczewWHmnKrRH6lGvNDJn1U28K8jvg3C5ja1rjeBzA/exec", {
         method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
+        body: formData
       })
-      .then(res => res.json())
-      .then(response => {
-        if (response.success) {
+      .then(response => response.text())
+      .then(text => {
+        if (text.trim() === "OK") {
           window.location.href = "benvenuto.html";
         } else {
-          alert("Errore durante la registrazione");
-          btn.disabled = false;
+          alert("Registrazione non riuscita");
         }
       })
-      .catch(err => {
-        console.error(err);
-        alert("Errore durante la registrazione");
-        btn.disabled = false;
+      .catch(() => {
+        alert("Errore di connessione");
       });
     });
   </script>
