@@ -1,141 +1,145 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>Apri il tuo Conto Ŧ</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Apri il tuo Conto Ŧ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<style>
-:root{
-  --gold:#c9a227;
-  --bg:#0b0b0f;
-  --card:rgba(255,255,255,.06);
-  --blur:blur(14px);
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-*{box-sizing:border-box}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #151520, #050508);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
 
-body{
-  margin:0;
-  background:radial-gradient(circle at top,#1a1a22,#050508 70%);
-  font-family:system-ui,-apple-system,BlinkMacSystemFont;
-  color:white;
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: linear-gradient(180deg, #14141c, #0b0b10);
+      border-radius: 22px;
+      padding: 36px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      text-align: center;
+    }
 
-.wrapper{
-  width:100%;
-  max-width:420px;
-  padding:20px;
-}
+    .symbol {
+      font-size: 38px;
+      font-weight: 700;
+      color: #d4af37;
+      margin-bottom: 12px;
+    }
 
-.card{
-  background:var(--card);
-  backdrop-filter:var(--blur);
-  border-radius:26px;
-  padding:36px 28px;
-  box-shadow:
-    0 0 60px rgba(0,0,0,.8),
-    inset 0 0 0 1px rgba(255,255,255,.05);
-  text-align:center;
-}
+    h1 {
+      font-size: 26px;
+      margin: 0 0 10px;
+    }
 
-.sigillo{
-  font-size:36px;
-  font-weight:700;
-  color:var(--gold);
-  margin-bottom:14px;
-}
+    .subtitle {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 28px;
+    }
 
-h1{
-  font-size:28px;
-  margin:0 0 10px;
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
 
-.subtitle{
-  opacity:.7;
-  font-size:14px;
-  margin-bottom:28px;
-}
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: none;
+      font-size: 15px;
+      outline: none;
+    }
 
-.form{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
+    input::placeholder {
+      color: #888;
+    }
 
-input{
-  background:rgba(255,255,255,.95);
-  border:none;
-  border-radius:12px;
-  padding:14px;
-  font-size:15px;
-}
+    button {
+      margin-top: 10px;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #e1c35a, #b8952e);
+      color: #000;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
 
-input:focus{
-  outline:none;
-  box-shadow:0 0 0 2px var(--gold);
-}
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(212,175,55,0.35);
+    }
 
-button{
-  margin-top:8px;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  font-size:16px;
-  font-weight:600;
-  background:linear-gradient(135deg,#e6c96f,#b8961f);
-  color:#000;
-  cursor:pointer;
-}
-
-button:hover{
-  filter:brightness(1.05);
-}
-
-.footer{
-  margin-top:22px;
-  font-size:12px;
-  opacity:.55;
-}
-</style>
+    .footer {
+      margin-top: 22px;
+      font-size: 12px;
+      opacity: 0.55;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="wrapper">
   <div class="card">
-
-    <div class="sigillo">Ŧ</div>
+    <div class="symbol">Ŧ</div>
 
     <h1>Apri il tuo Conto Ŧ</h1>
     <div class="subtitle">
-      Sistema monetario simulato • Nessun valore reale
+      Sistema simulato • Nessun valore reale
     </div>
 
-    <div class="form">
-      <input id="nome" placeholder="Nome completo">
-      <input id="email" type="email" placeholder="Email">
-      <input id="paese" value="Italia">
-      <button onclick="registra()">Registrati</button>
-    </div>
+    <form id="contoForm">
+      <input type="text" name="nome" placeholder="Nome" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="text" name="paese" value="Italia" />
+
+      <button type="submit">Registrati</button>
+    </form>
 
     <div class="footer">
-      Accesso personale • Nessun deposito • Ambiente sperimentale
+      Nessuna valuta reale • Nessun deposito<br>
+      Accesso interno al sistema Token’s AI Bank
     </div>
-
   </div>
-</div>
 
-<script>
-function registra(){
-  // per ora lasciamo la logica com’è
-  alert("Registrazione in corso…");
-}
-</script>
+  <script>
+    const form = document.getElementById("contoForm");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/macros/s/AKfycbx8y69Cm2g44d1MgJa79P30kPX3cczewWHmnKrRH6lGvNDJn1U28K8jvg3C5ja1rjeBzA/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(() => {
+        window.location.href = "benvenuto.html";
+      })
+      .catch(() => {
+        alert("Errore di connessione");
+      });
+    });
+  </script>
 
 </body>
 </html>
