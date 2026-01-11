@@ -28,13 +28,13 @@
     }
 
     h1 {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
-    p.subtitle {
+    p {
       font-size: 14px;
       color: #cccccc;
-      margin-bottom: 24px;
+      margin-bottom: 25px;
     }
 
     input {
@@ -63,7 +63,6 @@
       margin-top: 18px;
       font-size: 12px;
       color: #999999;
-      line-height: 1.4;
     }
   </style>
 </head>
@@ -72,52 +71,27 @@
 
   <div class="container">
     <h1>Apri il tuo Conto Ŧ</h1>
-    <p class="subtitle">
+    <p>
       Registrazione al sistema Token’s AI Bank<br>
       Ambiente simulato • Nessun valore reale
     </p>
 
-    <!-- FORM -->
-    <form id="registerForm">
-      <input type="text" id="nome" placeholder="Nome completo" required>
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="text" id="paese" placeholder="Paese" required>
+    <!-- FORM NATIVO (LA CHIAVE) -->
+    <form 
+      method="POST"
+      action="https://script.google.com/macros/s/AKfycbx8y69Cm2g44d1MgJa79P30kPX3cczewWHmnKrRH6lGvNDJn1U28K8jvg3C5ja1rjeBzA/exec"
+    >
+      <input type="text" name="nome" placeholder="Nome completo" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="paese" placeholder="Paese" required>
+
       <button type="submit">Registrati</button>
     </form>
 
     <div class="note">
-      Il conto è personale e interno al sistema.<br>
-      Nessuna valuta reale, nessun deposito.
+      Il conto è personale e interno al sistema.
     </div>
   </div>
-
-  <!-- SCRIPT -->
-  <script>
-    document.getElementById("registerForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const formData = new FormData();
-      formData.append("nome", document.getElementById("nome").value);
-      formData.append("email", document.getElementById("email").value);
-      formData.append("paese", document.getElementById("paese").value);
-
-      fetch("https://script.google.com/macros/s/AKfycbx8y69Cm2g44d1MgJa79P30kPX3cczewWHmnKrRH6lGvNDJn1U28K8jvg3C5ja1rjeBzA/exec", {
-        method: "POST",
-        body: formData
-      })
-      .then(response => response.text())
-      .then(text => {
-        if (text.trim() === "OK") {
-          window.location.href = "benvenuto.html";
-        } else {
-          alert("Registrazione non riuscita");
-        }
-      })
-      .catch(() => {
-        alert("Errore di connessione");
-      });
-    });
-  </script>
 
 </body>
 </html>
