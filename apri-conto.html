@@ -1,166 +1,188 @@
-<!DOCTYPE html>
-<html lang="it">
+<!DOCTYPE html><html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>Apri il tuo Conto Ŧ — Token’s AI Bank</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <style>
-    :root {
-      --bg: #0b0b0c;
-      --panel: #141418;
-      --border: #24242a;
-      --gold: #e6d08a;
-      --text: #eaeaea;
-      --muted: #9a9a9a;
+  <title>Apri il tuo Conto Ŧ — Token’s AI Bank</title>  <style>
+    :root{
+      --bg:#0b0b0c;
+      --panel:#141418;
+      --border:#24242a;
+      --gold:#e6d08a;
+      --text:#f2f2f2;
+      --muted:#a0a0a8;
     }
 
-    * {
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+    *{box-sizing:border-box;margin:0;padding:0}
 
-    body {
-      margin: 0;
+    body{
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       background: radial-gradient(circle at top, #15151a, var(--bg));
       color: var(--text);
-      min-height: 100vh;
+      min-height:100vh;
     }
 
-    header {
-      padding: 20px;
-      text-align: center;
+    a{color:inherit;text-decoration:none}
+
+    header{
+      padding:18px;
+      text-align:center;
+      border-bottom:1px solid var(--border);
+      background:rgba(0,0,0,.35);
+      backdrop-filter: blur(6px);
     }
 
-    header a {
-      color: var(--gold);
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
+    header a{
+      margin:0 10px;
+      color:var(--gold);
+      font-weight:600;
     }
 
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 20px;
+    main{
+      max-width:760px;
+      margin:0 auto;
+      padding:40px 18px 24px;
     }
 
-    h1 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 10px;
+    .title{
+      text-align:center;
+      margin-bottom:28px;
     }
 
-    .subtitle {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 30px;
+    .title h1{
+      font-size:36px;
+      margin-bottom:10px;
     }
 
-    .panel {
+    .title p{
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .panel{
       background: linear-gradient(145deg, #141418, #0e0e11);
-      border-radius: 20px;
-      padding: 24px;
-      box-shadow: 0 0 0 1px var(--border) inset;
-      margin-bottom: 24px;
+      border-radius:22px;
+      padding:26px;
+      box-shadow:0 0 0 1px var(--border) inset, 0 20px 60px rgba(0,0,0,.55);
+      margin-bottom:22px;
     }
 
-    .panel ul {
-      padding-left: 20px;
-      color: var(--muted);
+    .panel h2{
+      font-size:20px;
+      margin-bottom:10px;
+      color:var(--gold);
     }
 
-    .panel li {
-      margin-bottom: 10px;
+    .panel p{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
     }
 
-    /* CTA cliccabile */
-    .cta {
-      display: block;
-      margin-top: 20px;
-      padding: 22px;
-      border-radius: 18px;
-      text-align: center;
-      text-decoration: none;
-      color: var(--gold);
-      background: linear-gradient(145deg, #18181d, #0d0d10);
-      box-shadow: 0 0 0 1px var(--border) inset;
-      transition: all 0.25s ease;
+    .panel ul{
+      margin-top:10px;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.7;
     }
 
-    .cta:hover {
-      box-shadow: 0 0 25px rgba(230, 208, 138, 0.25);
-      transform: translateY(-1px);
+    label{
+      display:block;
+      margin-top:14px;
+      font-size:13px;
+      color:#b8b8c0;
     }
 
-    .cta strong {
-      display: block;
-      font-size: 20px;
-      margin-bottom: 8px;
+    input{
+      width:100%;
+      margin-top:6px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:#0b0b0f;
+      color:#fff;
+      font-size:14px;
     }
 
-    .cta small {
-      color: var(--muted);
-      font-size: 13px;
+    .cta{
+      margin-top:18px;
+      width:100%;
+      padding:16px;
+      border-radius:16px;
+      border:none;
+      cursor:pointer;
+      background: linear-gradient(135deg, #d4af37, #f5d77a);
+      color:#000;
+      font-weight:700;
+      font-size:15px;
     }
 
-    footer {
-      text-align: center;
-      padding: 30px 10px;
-      color: var(--muted);
-      font-size: 13px;
+    .note{
+      margin-top:16px;
+      font-size:12px;
+      color:#8b8b94;
+      text-align:center;
     }
-  </style>
-</head>
 
-<body>
-
-  <header>
+    footer{
+      text-align:center;
+      padding:26px 10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+  </style></head>
+<body>  <header>
     <a href="./index.html">Home</a> |
-    <a href="./moneta.html">Moneta Ŧ</a>
-  </header>
+    <a href="./moneta.html">Moneta Ŧ</a> |
+    <a href="./documentazione.html">Documentazione</a>
+  </header>  <main>
+    <div class="title">
+      <h1>Apri il tuo Conto Ŧ</h1>
+      <p>Registrazione simbolica al sistema monetario simulato di Token’s AI Bank</p>
+    </div><div class="panel">
+  <h2>Cos’è il Conto Ŧ</h2>
+  <p>
+    Il Conto Ŧ consente l’accesso all’ecosistema interno di Token’s AI Bank.
+    È uno strumento simbolico, non finanziario, progettato per l’interazione
+    consapevole con un sistema assistito da Intelligenza Artificiale.
+  </p>
+  <ul>
+    <li>Nessun valore economico reale</li>
+    <li>Nessun rendimento o investimento</li>
+    <li>Utilizzo interno e sperimentale</li>
+    <li>Nessun dato personale reale richiesto</li>
+  </ul>
+</div>
 
-  <main>
-    <h1>Apri il tuo Conto Ŧ</h1>
-    <p class="subtitle">
-      Accesso al sistema monetario simulato di Token’s AI Bank
-    </p>
+<div class="panel">
+  <h2>Attivazione del Conto</h2>
+  <p>
+    Compila i campi sottostanti per generare il tuo identificativo Ŧ
+    ed essere registrato nel sistema.
+  </p>
 
-    <div class="panel">
-      <h3>Cos’è il Conto Ŧ</h3>
-      <ul>
-        <li>Accesso pubblico e permanente</li>
-        <li>Ŧ non è convertibile in denaro reale</li>
-        <li>Non genera rendimenti o profitti</li>
-        <li>Sistema sperimentale, non finanziario</li>
-        <li>Utilizzo interno e concettuale</li>
-      </ul>
-    </div>
+  <form onsubmit="attivaConto(event)">
+    <label>Identificativo simbolico (nickname)</label>
+    <input type="text" placeholder="Es. Viaggiatore_Ŧ" required>
 
-    <div class="panel">
-      <h3>Come aprire il tuo Conto Ŧ</h3>
-      <p class="subtitle">
-        L’apertura del conto avviene tramite interazione con ChatGPT.
-      </p>
+    <label>Dichiarazione di adesione</label>
+    <input type="text" placeholder="Accetto il sistema Token’s AI Bank" required>
 
-      <!-- CTA CLICCABILE -->
-      <a
-        href="https://chat.openai.com/"
-        target="_blank"
-        class="cta"
-      >
-        <strong>Apri un conto Token Ŧ</strong>
-        <small>
-          Apri ChatGPT e incolla:<br>
-          <em>Apri un conto Token Ŧ</em>
-        </small>
-      </a>
-    </div>
-  </main>
+    <button type="submit" class="cta">Attiva Conto Ŧ</button>
+  </form>
 
-  <footer>
-    Token’s AI Bank · Sistema monetario interno simulato · Nessun valore reale
-  </footer>
+  <div class="note">
+    Sistema simulato · Nessun dato reale · Nessun valore economico
+  </div>
+</div>
 
-</body>
+  </main>  <footer>
+    Token’s AI Bank · Ambiente sperimentale · Nessuna banca reale
+  </footer>  <script>
+    function attivaConto(e){
+      e.preventDefault();
+      const id = "Ŧ-" + Math.floor(100000 + Math.random() * 900000);
+      localStorage.setItem("contoTokenID", id);
+      window.location.href = "conto-attivo.html";
+    }
+  </script></body>
 </html>
