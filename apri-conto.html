@@ -1,147 +1,99 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>Apri il tuo Conto Ŧ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Apri il tuo Conto Ŧ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background: #0b0f1a;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #111827, #000);
-      color: #ffffff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.container {
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 0 30px rgba(255,215,0,0.15);
+}
 
-    .container {
-      max-width: 420px;
-      width: 90%;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
-      text-align: center;
-    }
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-    h1 {
-      margin-top: 0;
-      font-size: 28px;
-      color: #f5d76e;
-    }
+p {
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+}
 
-    p {
-      font-size: 15px;
-      line-height: 1.6;
-      opacity: 0.9;
-    }
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: none;
+}
 
-    ul {
-      text-align: left;
-      padding-left: 20px;
-      margin: 20px 0;
-      font-size: 14px;
-    }
-
-    ul li {
-      margin-bottom: 8px;
-    }
-
-    button {
-      margin-top: 20px;
-      width: 100%;
-      padding: 14px;
-      font-size: 16px;
-      border-radius: 14px;
-      border: none;
-      background: linear-gradient(135deg, #f5d76e, #d4af37);
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(245, 215, 110, 0.4);
-    }
-
-    .note {
-      margin-top: 15px;
-      font-size: 12px;
-      opacity: 0.6;
-    }
-
-    .nav {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      font-size: 14px;
-    }
-
-    .nav a {
-      color: #f5d76e;
-      text-decoration: none;
-      margin-right: 10px;
-    }
-  </style>
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  background: linear-gradient(135deg,#ffd700,#cfa300);
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
+<div class="container">
+  <h1>Apri il tuo Conto Ŧ</h1>
+  <p>Registrazione ufficiale Token’s AI Bank</p>
 
-  <div class="nav">
-    <a href="./index.html">Home</a>
-    <a href="./moneta.html">Moneta Ŧ</a>
-  </div>
+  <form id="form">
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="paese" placeholder="Paese" required>
 
-  <div class="container">
-    <h1>Apri il tuo Conto Token Ŧ</h1>
+    <button type="submit">Registrati</button>
+  </form>
+</div>
 
-    <p>
-      Il Conto Ŧ è un accesso personale all’ecosistema simulato di Token’s AI Bank.
-      Non rappresenta denaro reale e non genera profitti.
-    </p>
+<script>
+const form = document.getElementById("form");
 
-    <ul>
-      <li>Accesso pubblico permanente</li>
-      <li>Nessun pagamento richiesto</li>
-      <li>Valore esclusivamente simbolico</li>
-      <li>Sistema interno sperimentale</li>
-    </ul>
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
 
-    <p>
-      Cliccando il pulsante qui sotto confermi la richiesta di attivazione del tuo
-      Conto Token Ŧ.
-    </p>
+  const data = {
+    nome: form.nome.value,
+    email: form.email.value,
+    paese: form.paese.value
+  };
 
-    <!-- FORM -->
-    <form onsubmit="attivaConto(event)">
-      <button type="submit">Attiva Conto Token Ŧ</button>
-    </form>
-
-    <div class="note">
-      Token’s AI Bank • Ambiente simulato • Nessun valore reale
-    </div>
-  </div>
-
-  <!-- SCRIPT -->
-  <script>
-    function attivaConto(event) {
-      event.preventDefault();
-
-      // genera ID simbolico
-      const id = "Ŧ-" + Math.floor(100000 + Math.random() * 900000);
-
-      // salva localmente l’ID
-      localStorage.setItem("contoTokenID", id);
-
-      // reindirizza alla pagina di conferma
-      window.location.href = "benvenuto.html";
-    }
-  </script>
-
+  fetch("https://script.google.com/macros/s/AKfycbzNnroyLIWjkuiH6o98CiRrh5CO0tHDwQSJL9uIkKadKPZ9X1R5mlqo9DDbbqGCUkac5Q/exec", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(() => {
+    window.location.href = "benvenuto.html";
+  })
+  .catch(() => {
+    alert("Errore durante la registrazione");
+  });
+});
+</script>
 </body>
 </html>
