@@ -2,15 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Apri il tuo Conto Ŧ</title>
+  <title>Apri il tuo Conto Token Ŧ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont;
-      background: radial-gradient(circle at top, #111 0%, #000 70%);
-      color: #fff;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #111827, #000000);
+      color: #ffffff;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -20,107 +20,118 @@
     .box {
       width: 90%;
       max-width: 420px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(20, 20, 20, 0.85);
       border-radius: 20px;
       padding: 30px;
-      box-shadow: 0 0 40px rgba(255,215,0,0.15);
-      text-align: center;
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.15);
     }
 
     h1 {
+      text-align: center;
       margin-bottom: 10px;
     }
 
     p {
-      color: #ccc;
+      text-align: center;
       font-size: 14px;
+      color: #cccccc;
+      margin-bottom: 25px;
     }
 
     input {
       width: 100%;
       padding: 12px;
-      margin: 10px 0;
+      margin-bottom: 15px;
       border-radius: 10px;
       border: none;
-      font-size: 15px;
+      outline: none;
+      font-size: 16px;
     }
 
     button {
       width: 100%;
-      margin-top: 15px;
       padding: 14px;
-      font-size: 16px;
-      border-radius: 12px;
+      background: linear-gradient(135deg, #d4af37, #b8962e);
       border: none;
-      cursor: pointer;
-      background: linear-gradient(135deg, #d4af37, #ffcc00);
-      color: #000;
+      border-radius: 14px;
+      font-size: 18px;
       font-weight: bold;
+      cursor: pointer;
+      color: #000;
     }
 
     button:disabled {
-      opacity: 0.6;
+      opacity: 0.7;
+      cursor: not-allowed;
     }
 
     .note {
       margin-top: 15px;
       font-size: 12px;
-      color: #888;
+      text-align: center;
+      color: #999999;
     }
   </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>Apri il tuo Conto Ŧ</h1>
-  <p>Sistema monetario interno simulato</p>
+  <div class="box">
+    <h1>Apri il tuo Conto Ŧ</h1>
+    <p>Registrazione al sistema Token’s AI Bank<br>
+    Ambiente simulato • Nessun valore reale</p>
 
-  <form id="registro">
-    <input type="text" name="nome" placeholder="Nome completo" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="paese" placeholder="Paese" required>
+    <form id="registerForm">
+      <input type="text" id="nome" placeholder="Nome completo" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="paese" placeholder="Paese" required>
 
-    <button type="submit">Registrati</button>
-  </form>
+      <button type="submit" id="submitBtn">Registrati</button>
+    </form>
 
-  <div class="note">
-    Nessun valore reale • Sistema sperimentale
+    <div class="note">
+      Il conto è personale e interno al sistema.<br>
+      Nessun valore finanziario reale.
+    </div>
   </div>
-</div>
 
-<script>
-  const form = document.getElementById("registro");
+  <script>
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+      const btn = document.getElementById("submitBtn");
+      btn.disabled = true;
 
-    const dati = {
-      nome: form.nome.value,
-      email: form.email.value,
-      paese: form.paese.value
-    };
+      const data = {
+        nome: document.getElementById("nome").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        paese: document.getElementById("paese").value.trim()
+      };
 
-    fetch("https://script.google.com/macros/s/AKfycbyRtU9Dyy15tCtq3-eI-eH9zKlUd_U5T1rnkYrP_VYrBjIXycBzpCh1FYuFySI-hVD_Fw/exec", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(dati)
-    })
-    .then(response => response.json())
-    .then(result => {
-      if (result.success) {
-        window.location.href = "benvenuto.html";
-      } else {
-        alert("Registrazione non riuscita");
-      }
-    })
-    .catch(() => {
-      alert("Errore durante la registrazione");
+      fetch("https://script.google.com/macros/s/AKfycbyMJl64UmM66xLtDnFoUypgb688D2NfawHJZbQp69yc36ZC5MSQYOdOYZuCz-7o2AGdCg/exec", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(response => {
+        if (response.success) {
+          window.location.href = "benvenuto.html";
+        } else {
+          alert("Errore durante la registrazione");
+          btn.disabled = false;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        alert("Errore durante la registrazione");
+        btn.disabled = false;
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
