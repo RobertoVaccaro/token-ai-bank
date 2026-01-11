@@ -5,95 +5,86 @@
 <title>Apri il tuo Conto Ŧ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body {
-  background: #0b0f1a;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+body{
+  background:#0b0f1a;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
 }
-
-.container {
-  background: rgba(255,255,255,0.05);
-  border-radius: 16px;
-  padding: 30px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 0 30px rgba(255,215,0,0.15);
+.box{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:16px;
+  width:100%;
+  max-width:420px;
+  box-shadow:0 0 30px rgba(255,215,0,0.15);
 }
-
-h1 {
-  text-align: center;
-  margin-bottom: 10px;
+h1{text-align:center;color:#ffd700;}
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:8px;
+  border:none;
 }
-
-p {
-  text-align: center;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: none;
-}
-
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  background: linear-gradient(135deg,#ffd700,#cfa300);
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  cursor: pointer;
+button{
+  width:100%;
+  padding:14px;
+  background:linear-gradient(135deg,#ffd700,#cfa300);
+  border:none;
+  border-radius:10px;
+  font-weight:bold;
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
-<div class="container">
+<div class="box">
   <h1>Apri il tuo Conto Ŧ</h1>
-  <p>Registrazione ufficiale Token’s AI Bank</p>
 
-  <form id="form">
-    <input type="text" name="nome" placeholder="Nome" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="paese" placeholder="Paese" required>
-
+  <form onsubmit="registra(event)">
+    <input id="nome" placeholder="Nome" required>
+    <input id="email" type="email" placeholder="Email" required>
+    <input id="paese" placeholder="Paese" required>
     <button type="submit">Registrati</button>
   </form>
 </div>
 
 <script>
-const form = document.getElementById("form");
-
-form.addEventListener("submit", function(e) {
+async function registra(e){
   e.preventDefault();
 
-  const data = {
-    nome: form.nome.value,
-    email: form.email.value,
-    paese: form.paese.value
+  const dati = {
+    nome: document.getElementById("nome").value,
+    email: document.getElementById("email").value,
+    paese: document.getElementById("paese").value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbzNnroyLIWjkuiH6o98CiRrh5CO0tHDwQSJL9uIkKadKPZ9X1R5mlqo9DDbbqGCUkac5Q/exec", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json" }
-  })
-  .then(() => {
-    window.location.href = "benvenuto.html";
-  })
-  .catch(() => {
-    alert("Errore durante la registrazione");
-  });
-});
+  try{
+    const res = await fetch(
+      "https://script.google.com/macros/s/AKfycbw9lmXMzXa8JzH-w8V3B-CSKz0THSYQelYEPvEtfM3UbzIFqHOVE8TaNXRcjJKgZom_Xw/exec",
+      {
+        method:"POST",
+        headers:{ "Content-Type":"application/json" },
+        body:JSON.stringify(dati)
+      }
+    );
+
+    const json = await res.json();
+
+    if(json.success){
+      window.location.href = "benvenuto.html";
+    }else{
+      alert("Registrazione non riuscita");
+    }
+  }catch(err){
+    alert("Errore di connessione");
+  }
+}
 </script>
 </body>
 </html>
