@@ -81,7 +81,7 @@
       padding:18px;
       border-radius:22px;
       border:1px solid var(--border);
-      background:linear-gradient(180deg, rgba(214,180,106,0.16), rgba(214,180,106,0.04));
+      background:linear-gradient(180deg, rgba(214,180,106,0.18), rgba(214,180,106,0.05));
       text-align:center;
     }
 
@@ -263,22 +263,23 @@
     Token’s AI Bank • Ambiente simulato • Nessun valore reale
   </footer>
 
-  <!-- SCRIPT CONTATORE -->
+  <!-- SCRIPT CONTATORE (ROBUSTO) -->
   <script>
-    const targetValue = 1250;
-    const counter = document.getElementById("tokenCount");
-    let current = 0;
+    window.onload = function () {
+      var counter = document.getElementById("tokenCount");
+      var current = 0;
+      var target = 1250;
 
-    function animateCounter(){
-      if(current < targetValue){
-        current += Math.ceil((targetValue - current) / 14);
-        counter.textContent = current;
-        requestAnimationFrame(animateCounter);
-      } else {
-        counter.textContent = targetValue;
-      }
-    }
-    animateCounter();
+      var interval = setInterval(function () {
+        if (current < target) {
+          current += 7;
+          counter.textContent = current;
+        } else {
+          counter.textContent = target;
+          clearInterval(interval);
+        }
+      }, 20);
+    };
   </script>
 
 </body>
