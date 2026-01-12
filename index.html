@@ -46,7 +46,7 @@
     .hero{
       display:flex;
       justify-content:center;
-      padding:30px 16px 50px;
+      padding:30px 16px 40px;
     }
 
     .hero-box{
@@ -72,9 +72,34 @@
     .tagline{
       color:var(--muted);
       font-size:16px;
-      margin-bottom:28px;
+      margin-bottom:10px;
     }
 
+    /* CONTATORE Ŧ */
+    .token-counter{
+      margin:20px auto 28px;
+      padding:18px;
+      border-radius:22px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(214,180,106,0.16), rgba(214,180,106,0.04));
+      text-align:center;
+    }
+
+    .counter-label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+
+    .counter-value{
+      font-size:42px;
+      font-weight:800;
+      color:var(--gold);
+      text-shadow:0 0 14px rgba(214,180,106,0.45);
+    }
+
+    /* AZIONI */
     .actions{
       display:grid;
       gap:16px;
@@ -93,7 +118,10 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.4);
     }
 
-    /* 🔽 NUOVA SEZIONE TOKEN */
+    .card h3{ font-size:20px; margin-bottom:6px; }
+    .card p{ font-size:14px; color:var(--muted); }
+
+    /* BOX RIASSUNTIVO Ŧ */
     .token-summary{
       display:flex;
       justify-content:center;
@@ -174,6 +202,12 @@
         Ecosistema monetario simulato • IA assistiva • Esperienza interattiva
       </p>
 
+      <!-- CONTATORE -->
+      <div class="token-counter">
+        <span class="counter-label">Ŧ totali generati nel sistema</span>
+        <span id="tokenCount" class="counter-value">0</span>
+      </div>
+
       <div class="actions">
         <a class="card" href="./apri-conto.html">
           <h3>Apri il tuo Conto</h3>
@@ -193,20 +227,21 @@
     </div>
   </section>
 
-  <!-- 🟡 BOX RIASSUNTIVO Ŧ -->
+  <!-- BOX RIASSUNTIVO -->
   <section class="token-summary">
     <div class="token-box">
       <h2>Come funziona Ŧ</h2>
-      <p>Ŧ è una unità simbolica interna al sistema, utilizzata per premiare attività e interazioni.</p>
+      <p>
+        Ŧ è una unità simbolica interna utilizzata per premiare partecipazione e accesso ai servizi.
+      </p>
 
       <div class="token-grid">
-
         <div class="token-item">
           <h3>Guadagna Ŧ</h3>
           <ul>
             <li>Registrazione al sistema</li>
-            <li>Partecipazione a simulazioni</li>
-            <li>Contributi e interazioni</li>
+            <li>Utilizzo attivo</li>
+            <li>Partecipazione e contributi</li>
             <li>Attività guidate dall’IA</li>
           </ul>
         </div>
@@ -214,13 +249,12 @@
         <div class="token-item">
           <h3>Spendi Ŧ</h3>
           <ul>
-            <li>Accesso a contenuti avanzati</li>
-            <li>Funzioni sperimentali</li>
-            <li>Livelli e status simbolici</li>
+            <li>Accesso a funzioni avanzate</li>
+            <li>Sezioni riservate</li>
+            <li>Status e livelli simbolici</li>
             <li>Esperienze personalizzate</li>
           </ul>
         </div>
-
       </div>
     </div>
   </section>
@@ -228,6 +262,24 @@
   <footer>
     Token’s AI Bank • Ambiente simulato • Nessun valore reale
   </footer>
+
+  <!-- SCRIPT CONTATORE -->
+  <script>
+    const targetValue = 1250;
+    const counter = document.getElementById("tokenCount");
+    let current = 0;
+
+    function animateCounter(){
+      if(current < targetValue){
+        current += Math.ceil((targetValue - current) / 14);
+        counter.textContent = current;
+        requestAnimationFrame(animateCounter);
+      } else {
+        counter.textContent = targetValue;
+      }
+    }
+    animateCounter();
+  </script>
 
 </body>
 </html>
