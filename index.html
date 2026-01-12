@@ -15,11 +15,7 @@
       --muted:#a0a0a8;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
 
     body{
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -28,12 +24,7 @@
       min-height:100vh;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
-      position:relative;
-      z-index:10;
-    }
+    a{ text-decoration:none; color:inherit; }
 
     /* NAV */
     .nav{
@@ -51,15 +42,11 @@
       font-weight:600;
     }
 
-    .nav a.active{
-      color:var(--gold);
-    }
-
     /* HERO */
     .hero{
       display:flex;
       justify-content:center;
-      padding:30px 16px 60px;
+      padding:30px 16px 50px;
     }
 
     .hero-box{
@@ -80,32 +67,25 @@
       margin-bottom:14px;
     }
 
-    h1{
-      font-size:36px;
-      margin-bottom:10px;
-    }
+    h1{ font-size:36px; margin-bottom:10px; }
 
     .tagline{
       color:var(--muted);
       font-size:16px;
-      line-height:1.4;
       margin-bottom:28px;
     }
 
-    /* ACTIONS */
     .actions{
       display:grid;
       gap:16px;
     }
 
     .card{
-      display:block;
       padding:22px;
       border-radius:22px;
       background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
       border:1px solid var(--border);
-      transition:transform .15s ease, box-shadow .15s ease;
-      pointer-events:auto;
+      transition:.15s;
     }
 
     .card:hover{
@@ -113,14 +93,59 @@
       box-shadow:0 10px 30px rgba(0,0,0,0.4);
     }
 
-    .card h3{
-      font-size:20px;
-      margin-bottom:6px;
+    /* 🔽 NUOVA SEZIONE TOKEN */
+    .token-summary{
+      display:flex;
+      justify-content:center;
+      padding:10px 16px 60px;
     }
 
-    .card p{
+    .token-box{
+      max-width:520px;
+      width:100%;
+      background:rgba(255,255,255,0.025);
+      border:1px solid var(--border);
+      border-radius:28px;
+      padding:30px 22px 34px;
+      text-align:center;
+    }
+
+    .token-box h2{
+      font-size:26px;
+      color:var(--gold);
+      margin-bottom:10px;
+    }
+
+    .token-box p{
+      font-size:15px;
+      color:var(--muted);
+      margin-bottom:26px;
+    }
+
+    .token-grid{
+      display:grid;
+      gap:18px;
+    }
+
+    .token-item{
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:18px;
+      background:rgba(255,255,255,0.03);
+      text-align:left;
+    }
+
+    .token-item h3{
+      color:var(--gold);
+      margin-bottom:8px;
+      font-size:18px;
+    }
+
+    .token-item ul{
       font-size:14px;
       color:var(--muted);
+      padding-left:18px;
+      line-height:1.6;
     }
 
     footer{
@@ -143,7 +168,6 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-box">
-
       <div class="sigil">Ŧ</div>
       <h1>Token’s AI Bank</h1>
       <p class="tagline">
@@ -151,7 +175,6 @@
       </p>
 
       <div class="actions">
-
         <a class="card" href="./apri-conto.html">
           <h3>Apri il tuo Conto</h3>
           <p>Accesso pubblico • Nessun valore reale</p>
@@ -166,6 +189,37 @@
           <h3>Documentazione</h3>
           <p>Regole • Etica • Struttura del sistema</p>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🟡 BOX RIASSUNTIVO Ŧ -->
+  <section class="token-summary">
+    <div class="token-box">
+      <h2>Come funziona Ŧ</h2>
+      <p>Ŧ è una unità simbolica interna al sistema, utilizzata per premiare attività e interazioni.</p>
+
+      <div class="token-grid">
+
+        <div class="token-item">
+          <h3>Guadagna Ŧ</h3>
+          <ul>
+            <li>Registrazione al sistema</li>
+            <li>Partecipazione a simulazioni</li>
+            <li>Contributi e interazioni</li>
+            <li>Attività guidate dall’IA</li>
+          </ul>
+        </div>
+
+        <div class="token-item">
+          <h3>Spendi Ŧ</h3>
+          <ul>
+            <li>Accesso a contenuti avanzati</li>
+            <li>Funzioni sperimentali</li>
+            <li>Livelli e status simbolici</li>
+            <li>Esperienze personalizzate</li>
+          </ul>
+        </div>
 
       </div>
     </div>
